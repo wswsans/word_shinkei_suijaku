@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>神経衰弱</title>
+		<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+		<script src="index.js"></script>
+		<style>
+			table {
+				width: 100%;
+				text-align: center;
+			}
+			td {
+				width: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="settings">
+			<input type="number" value="5" placeholder="一辺" id="length">
+			<input type="checkbox" id="F_En" checked><label for="F_En">先に英語か</label>
+			<button id="set">設定</button>
+		</div>
+		<div id="score">
+			<span id="me">得点: 0</span>
+			<input type="hidden" id="count" value="fi">
+		</div>
+		<div id="tables">
+			<table id="fi" border="1">
+			</table>
+			<table id="la" border="1">
+			</table>
+			<button id="start">開始</button>
+		</div>
+		<span>お借りした単語一覧: <a href="https://tango.mage8.com/word-list" target="_blank">https://tango.mage8.com/word-list</a></span>
+	</body>
+</html>
