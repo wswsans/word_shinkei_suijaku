@@ -16,7 +16,12 @@ $.ajax({
 	window.alert("データのロードに失敗したため、ご利用になりません");
 })
 
+let def_width = 0;
 $(()=> {
+	$(window).resize(() => {
+		def_width = $("td#td_0_0").width();
+		$("td").width(def_width);
+	})
 	$("div#tables").hide();
 	$("button#set").click(e => {
 		$("table").html("");
@@ -33,6 +38,7 @@ $(()=> {
 			}
 		}
 		$("div#tables").show();
+		$(window).resize();
 	}).click();
 	$("button#start").click(e => {
 		$("span#me").text("得点: 0").prop("score", 0);
@@ -101,6 +107,7 @@ $(()=> {
 					}
 				})
 			}
+			$("td").width(def_width);
 		})
 	})
 })
