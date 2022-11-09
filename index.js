@@ -42,7 +42,6 @@ $(()=> {
 	}).click();
 	$("button#start").click(e => {
 		$("span#me").text("得点: 0").prop("score", 0);
-		let randmized_list = [];
 		let tmp = word_data;
 		//--- シャッフルするやつ, tmpリストを1つずつ抽出しては入れ替えっていうやつやってる
 		const checked = $("input#F_En").prop("checked");
