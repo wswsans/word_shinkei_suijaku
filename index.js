@@ -20,6 +20,7 @@ $(()=> {
 	$("div#tables").hide();
 	$("button#set").click(e => {
 		$("table").html("");
+		$("input#count").val("fi");
 		len = $("input#length").val();
 		let head = "";
 		for (let m = 0; m < 2; m++) {
