@@ -49,6 +49,7 @@ $(()=> {
 		})
 		result.data = result.data.slice(0, $("input#length").val()**2);
 
+		// result[(checked) ? "fi" : "la"] = result.data
 		result[(checked) ? "fi" : "la"] = result.data.reduce((_,cur,idx) => {
 			let rand = Math.floor(Math.random() * (idx + 1));
 			result.data[idx] = result.data[rand];
@@ -56,6 +57,7 @@ $(()=> {
 			return result.data;
 		})
 		result[(checked) ? "fi" : "la"] = result[(checked) ? "fi" : "la"].map(x => x["en"]);
+		// result[(checked) ? "la" : "fi"] = result.data
 		result[(checked) ? "la" : "fi"] = result.data.reduce((_,cur,idx) => {
 			let rand = Math.floor(Math.random() * (idx + 1));
 			result.data[idx] = result.data[rand];
@@ -83,6 +85,8 @@ $(()=> {
 							console.log("yes");
 							let sc = $("span#me").prop("score") +1;
 							$("span#me").prop("score", sc).text(`得点: ${sc}`);
+							$("td.opened").removeClass("opened");
+							$("input#count").val("fi");
 						} else {
 							console.log("no");
 							setTimeout(() => {
