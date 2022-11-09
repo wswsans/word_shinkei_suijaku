@@ -1,5 +1,14 @@
 console.log("神経衰弱 Script load");
 
+//音声合成API
+let uttr = new SpeechSynthesisUtterance();
+const speak = (word) => {
+	console.log("Spoken:",word);
+	uttr.text = word;
+	uttr.lang = "en-US";
+	speechSynthesis.speak(uttr);
+}
+
 var word_data = [];
 $.ajax({
 	type: "GET",
@@ -42,7 +51,6 @@ $(()=> {
 	}).click();
 	$("button#start").click(e => {
 		$("span#me").text("得点: 0").prop("score", 0);
-		let randmized_list = [];
 		let tmp = word_data;
 		//--- シャッフルするやつ, tmpリストを1つずつ抽出しては入れ替えっていうやつやってる
 		const checked = $("input#F_En").prop("checked");
@@ -84,6 +92,7 @@ $(()=> {
 				if ($("td.words").hasClass("opened")) return;
 				$(e.target).text($(e.target).prop("text_data")).addClass("opened");
 				$("input#count").val("la");
+				speak($(e.target).prop("text_data"));
 			} else if ($(e.target).hasClass("word_la") && $("input#count").val() == "la") {
 				$(e.target).text($(e.target).prop("text_data"));
 				$("input#count").val("fi");
