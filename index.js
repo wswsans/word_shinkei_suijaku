@@ -73,6 +73,7 @@ $(()=> {
 			$($(`td.word_la`).get(i)).prop("text_data", result["la"][i]).text("***");
 		}
 		$("td.words").click(e => {
+			if ($(e.target).hasClass("cleared")) return;
 			if ($(e.target).hasClass("word_fi") && $("input#count").val() == "fi") {
 				if ($("td.words").hasClass("opened")) return;
 				$(e.target).text($(e.target).prop("text_data")).addClass("opened");
@@ -86,7 +87,8 @@ $(()=> {
 							console.log("yes");
 							let sc = $("span#me").prop("score") +1;
 							$("span#me").prop("score", sc).text(`得点: ${sc}`);
-							$("td.opened").removeClass("opened");
+							$("td.opened").removeClass("opened").addClass("cleared");
+							$(e.target).addClass("cleared");
 							$("input#count").val("fi");
 						} else {
 							console.log("no");
